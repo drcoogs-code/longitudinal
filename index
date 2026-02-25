@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>myGP Clinic — Service Description</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Questrial&family=Muli:wght@300;400;600;700;800&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+	<style>
+		:root {
+			--taupe: #aea292;
+			--dark-green: #262b24;
+			--beige: #e2d2be;
+			--light-gray: #dadfcf;
+			--muted-green: #6d897b;
+			--off-white: #dadfcf;
+			--white: #ffffff;
+			--text-dark: #262b24;
+			--text-mid: #4a4a42;
+			--font-title: 'Questrial', sans-serif;
+			--font-body: 'Muli', 'Mulish', sans-serif;
+		}
+
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+		* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+		@page {
+			size: A4;
+			margin: 10mm;
+		}
+
+		body {
+			font-family: var(--font-body);
+			background: #fff;
+			color: var(--text-dark);
+			line-height: 1.6;
+			padding: 0;
+		}
+
+		.topbar {
+			max-width: 980px;
+			margin: 0 auto 16px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
+			flex-wrap: wrap;
+		}
+
+		.brand {
+			font-family: var(--font-title);
+			font-size: 1.4rem;
+			letter-spacing: -0.4px;
+			color: var(--dark-green);
+		}
+
+		.brand span { color: var(--muted-green); }
+
+		.btn {
+			border: 1px solid var(--muted-green);
+			border-radius: 999px;
+			background: var(--muted-green);
+			color: var(--white);
+			font-size: 0.75rem;
+			font-weight: 700;
+			letter-spacing: 1.2px;
+			text-transform: uppercase;
+			padding: 10px 18px;
+			cursor: pointer;
+		}
+
+		.btn:hover { background: var(--dark-green); border-color: var(--dark-green); }
+
+		.report {
+			width: 210mm;
+			max-width: 210mm;
+			margin: 0 auto;
+			border: 0;
+			border-radius: 0;
+			overflow: hidden;
+			background: #fff;
+			box-shadow: none;
+		}
+
+		.a4-page {
+			width: 210mm;
+			height: 297mm;
+			padding: 16mm 14mm;
+			page-break-after: always;
+			break-after: page;
+			overflow: hidden;
+		}
+
+		.a4-page:last-of-type {
+			page-break-after: auto;
+			break-after: auto;
+		}
+
+		.section.a4-page {
+			border-top: none;
+			padding: 16mm 14mm;
+		}
+
+		.brand-lockup {
+			display: inline-flex;
+			flex-direction: column;
+			line-height: 1;
+		}
+
+		.brand-lockup__main {
+			font-family: var(--font-title);
+			font-size: 1.45rem;
+			letter-spacing: -0.6px;
+			color: var(--dark-green);
+		}
+
+		.brand-lockup__main span {
+			color: var(--muted-green);
+		}
+
+		.brand-lockup__sub {
+			margin-top: 2px;
+			font-size: 0.52rem;
+			letter-spacing: 4px;
+			text-transform: uppercase;
+			font-weight: 800;
+			color: var(--taupe);
+		}
+
+		.brand-lockup--light .brand-lockup__main,
+		.brand-lockup--light .brand-lockup__sub {
+			color: rgba(255, 255, 255, 0.95);
+		}
+
+		.brand-lockup--light .brand-lockup__main span {
+			color: var(--muted-green);
+		}
+
+		.cover {
+			background: var(--dark-green);
+			color: var(--white);
+			padding: 16mm 14mm;
+			height: 297mm;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.cover-kicker {
+			font-size: 0.66rem;
+			font-weight: 800;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			color: var(--muted-green);
+			margin-bottom: 14px;
+		}
+
+		.cover h1 {
+			font-family: var(--font-title);
+			font-size: 2.3rem;
+			line-height: 1.12;
+			margin-bottom: 12px;
+		}
+
+		.cover p {
+			max-width: 70ch;
+			color: rgba(255, 255, 255, 0.74);
+			font-size: 0.9rem;
+			line-height: 1.75;
+		}
+
+		.cover-context {
+			font-size: 0.95rem;
+			font-weight: 700;
+			color: var(--muted-green);
+			margin-top: 6px;
+		}
+
+
+		.cover-logo {
+			display: flex;
+			justify-content: flex-end;
+			margin-top: -2px;
+			margin-bottom: 14px;
+		}
+
+		.cover-divider {
+			margin: 72px 0 56px;
+			height: 1px;
+			background: rgba(255, 255, 255, 0.7);
+		}
+
+		.cover-points {
+			margin-top: auto;
+			margin-left: 38px;
+			display: grid;
+			gap: 14px;
+			max-width: 380px;
+		}
+
+		.cover-point {
+			font-size: 0.92rem;
+			color: var(--muted-green);
+			font-weight: 700;
+		}
+
+		.meta-grid {
+			margin-top: 22px;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+		}
+
+		.meta-card {
+			border: 1px solid rgba(255, 255, 255, 0.14);
+			background: rgba(255, 255, 255, 0.06);
+			border-radius: 10px;
+			padding: 12px 14px;
+		}
+
+		.meta-label {
+			font-size: 0.58rem;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: var(--muted-green);
+			font-weight: 800;
+			margin-bottom: 4px;
+		}
+
+		.meta-value {
+			font-family: var(--font-title);
+			font-size: 0.95rem;
+		}
+
+		.section {
+			padding: 30px 36px;
+			border-top: 1px solid var(--light-gray);
+		}
+
+		.section h2 {
+			font-family: var(--font-title);
+			color: var(--dark-green);
+			font-size: 1.45rem;
+			margin-bottom: 12px;
+		}
+
+		.section p {
+			color: var(--text-mid);
+			font-size: 0.92rem;
+			line-height: 1.75;
+			margin-bottom: 10px;
+		}
+
+		.intro-band {
+			background: linear-gradient(135deg, rgba(109, 137, 123, 0.1) 0%, rgba(226, 210, 190, 0.35) 100%);
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			padding: 16px 18px;
+			margin-top: 10px;
+		}
+
+		.intro-band p {
+			margin-bottom: 0;
+			font-size: 0.9rem;
+		}
+
+		.contents-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 14px;
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			overflow: hidden;
+		}
+
+		.contents-table thead {
+			background: linear-gradient(135deg, rgba(109, 137, 123, 0.08) 0%, rgba(109, 137, 123, 0.12) 100%);
+		}
+
+		.contents-table th {
+			text-align: left;
+			padding: 14px 16px;
+			font-size: 0.8rem;
+			font-weight: 800;
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+			color: var(--dark-green);
+			border-bottom: 2px solid var(--light-gray);
+		}
+
+		.contents-table tbody tr {
+			border-bottom: 1px solid var(--beige);
+		}
+
+		.contents-table tbody tr:last-child {
+			border-bottom: none;
+		}
+
+		.contents-table td {
+			padding: 12px 16px;
+			vertical-align: top;
+		}
+
+		.contents-table__title {
+			font-weight: 700;
+			letter-spacing: 0.3px;
+			width: 42%;
+		}
+
+		.contents-table__title a {
+			text-decoration: none;
+			color: var(--dark-green);
+		}
+
+		.contents-table__title a:hover {
+			color: var(--muted-green);
+		}
+
+		.contents-table__desc {
+			font-size: 0.82rem;
+			color: var(--text-mid);
+			line-height: 1.5;
+		}
+
+		.contents-table__title a {
+			text-decoration: none;
+			color: var(--dark-green);
+		}
+
+		.contents-table__title a:hover {
+			color: var(--muted-green);
+		}
+
+		.lead-note {
+			font-size: 1rem;
+			line-height: 1.8;
+			color: var(--text-mid);
+		}
+
+		.letter-box {
+			margin-top: 14px;
+			background: #fff;
+			border: 1px solid var(--light-gray);
+			border-top: 3px solid var(--muted-green);
+			border-radius: 12px;
+			padding: 16px;
+		}
+
+		.letter-box p {
+			margin-bottom: 12px;
+		}
+
+		.quote-block {
+			margin: 14px 0;
+			padding: 14px 16px;
+			border-left: 3px solid var(--muted-green);
+			background: var(--off-white);
+			border-radius: 8px;
+			font-style: italic;
+		}
+
+		.kpi-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 10px;
+			margin-top: 12px;
+		}
+
+		.kpi-card {
+			background: var(--off-white);
+			border: 1px solid var(--light-gray);
+			border-radius: 10px;
+			padding: 12px;
+		}
+
+		.kpi-card h3 {
+			font-family: var(--font-title);
+			font-size: 0.92rem;
+			margin-bottom: 4px;
+		}
+
+		.kpi-card p {
+			margin: 0;
+			font-size: 0.82rem;
+		}
+
+		.medicine-models {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 12px;
+			margin-top: 14px;
+		}
+
+		.model-card {
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			padding: 14px;
+			background: #fff;
+		}
+
+		.model-card h3 {
+			font-family: var(--font-title);
+			font-size: 1rem;
+			margin-bottom: 2px;
+		}
+
+		.model-card__tag {
+			font-size: 0.72rem;
+			font-weight: 700;
+			letter-spacing: 0.6px;
+			color: var(--muted-green);
+			text-transform: uppercase;
+			margin-bottom: 8px;
+		}
+
+		.model-list {
+			display: grid;
+			gap: 6px;
+			font-size: 0.84rem;
+			color: var(--text-mid);
+		}
+
+		.horsemen-list {
+			margin-top: 10px;
+			display: grid;
+			gap: 8px;
+		}
+
+		.horseman-item {
+			border: 1px solid var(--light-gray);
+			border-left: 3px solid var(--muted-green);
+			border-radius: 10px;
+			padding: 10px 12px;
+			background: #fff;
+			font-size: 0.86rem;
+		}
+
+		.report-list {
+			margin-top: 10px;
+			display: grid;
+			gap: 7px;
+		}
+
+		.report-list li {
+			margin-left: 18px;
+			font-size: 0.9rem;
+			color: var(--text-mid);
+		}
+
+		.pillar-long {
+			margin-top: 12px;
+			display: grid;
+			gap: 10px;
+		}
+
+		.pillar-long article {
+			background: #fff;
+			border: 1px solid var(--light-gray);
+			border-radius: 10px;
+			padding: 12px;
+		}
+
+		.pillar-long h3 {
+			font-family: var(--font-title);
+			font-size: 0.96rem;
+			margin-bottom: 6px;
+		}
+
+		.subtle {
+			font-size: 0.8rem;
+			color: var(--taupe);
+		}
+
+		.offer-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 14px;
+			margin-top: 14px;
+		}
+
+		.offer-card {
+			background: #fff;
+			border: 1px solid var(--light-gray);
+			border-top: 3px solid var(--muted-green);
+			border-radius: 12px;
+			padding: 16px;
+		}
+
+		.offer-card h3 {
+			font-family: var(--font-title);
+			font-size: 1.05rem;
+			color: var(--dark-green);
+			margin-bottom: 4px;
+		}
+
+		.offer-tag {
+			font-size: 0.7rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: var(--muted-green);
+			margin-bottom: 8px;
+		}
+
+		.offer-price {
+			font-family: var(--font-title);
+			font-size: 1.35rem;
+			color: var(--dark-green);
+			margin: 8px 0;
+		}
+
+		.template-note {
+			font-size: 0.8rem;
+			color: var(--taupe);
+			margin-top: 6px;
+		}
+
+		.checklist {
+			display: grid;
+			gap: 7px;
+			margin-top: 10px;
+		}
+
+		.checklist div {
+			font-size: 0.86rem;
+			color: var(--text-mid);
+			padding-left: 16px;
+			position: relative;
+		}
+
+		.checklist div::before {
+			content: "•";
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: var(--muted-green);
+			font-weight: 800;
+		}
+
+		.split-detail {
+			display: grid;
+			grid-template-columns: 1.15fr 1fr;
+			gap: 14px;
+			margin-top: 12px;
+		}
+
+		.detail-panel {
+			background: #fff;
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			padding: 14px;
+		}
+
+		.detail-panel h3 {
+			font-family: var(--font-title);
+			font-size: 0.98rem;
+			color: var(--dark-green);
+			margin-bottom: 8px;
+		}
+
+		.feature-band {
+			margin-top: 14px;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 8px;
+		}
+
+		.feature-pill {
+			background: #fff;
+			border: 1px solid var(--light-gray);
+			border-radius: 10px;
+			padding: 10px;
+			font-size: 0.76rem;
+			font-weight: 700;
+			color: var(--text-mid);
+			text-align: center;
+		}
+
+		.assessment-shell {
+			background: #fff;
+			border: 1px solid var(--light-gray);
+			border-radius: 14px;
+			padding: 18px;
+			margin-top: 14px;
+		}
+
+		.assessment-head {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 12px;
+			align-items: end;
+			padding-bottom: 12px;
+			border-bottom: 1px solid var(--light-gray);
+		}
+
+		.assessment-head h3 {
+			font-family: var(--font-title);
+			font-size: 1.55rem;
+			line-height: 1.15;
+			color: var(--dark-green);
+		}
+
+		.assessment-head__meta {
+			text-align: right;
+		}
+
+		.assessment-head__price {
+			font-family: var(--font-title);
+			font-size: 1.25rem;
+			color: var(--dark-green);
+		}
+
+		.assessment-head__time {
+			font-size: 0.72rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: var(--muted-green);
+			margin-top: 2px;
+		}
+
+		.area-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 10px;
+			margin-top: 14px;
+		}
+
+		.area-item {
+			border: 1px solid var(--light-gray);
+			border-radius: 10px;
+			padding: 10px 8px;
+			background: #faf9f6;
+			text-align: center;
+			min-height: 94px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 8px;
+		}
+
+		.area-item__icon {
+			width: 30px;
+			height: 30px;
+			border-radius: 999px;
+			margin: 0 auto;
+			border: 1px dashed var(--muted-green);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.72rem;
+			font-weight: 700;
+			color: var(--muted-green);
+		}
+
+		.area-item__label {
+			font-size: 0.74rem;
+			line-height: 1.3;
+			font-weight: 700;
+			color: var(--text-mid);
+		}
+
+		.detail-columns {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+			margin-top: 14px;
+		}
+
+		.detail-block {
+			border: 1px solid var(--light-gray);
+			border-radius: 10px;
+			padding: 12px;
+			background: #fff;
+		}
+
+		.detail-block h4 {
+			font-family: var(--font-title);
+			font-size: 0.96rem;
+			margin-bottom: 8px;
+			color: var(--dark-green);
+		}
+
+		.detail-block p {
+			font-size: 0.84rem;
+			line-height: 1.6;
+			color: var(--text-mid);
+			margin-bottom: 0;
+		}
+
+		.cards {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+			margin-top: 10px;
+		}
+
+		.card {
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			background: var(--off-white);
+			padding: 14px;
+		}
+
+		.card h3 {
+			font-family: var(--font-title);
+			font-size: 0.98rem;
+			margin-bottom: 6px;
+			color: var(--dark-green);
+		}
+
+		.card p {
+			font-size: 0.86rem;
+			margin: 0;
+		}
+
+		.timeline {
+			display: grid;
+			gap: 8px;
+			margin-top: 10px;
+		}
+
+		.timeline-step {
+			border: 1px solid var(--light-gray);
+			border-left: 3px solid var(--muted-green);
+			border-radius: 10px;
+			padding: 12px 14px;
+			background: var(--white);
+			font-size: 0.88rem;
+			color: var(--text-mid);
+		}
+
+		.timeline-step strong {
+			color: var(--dark-green);
+			display: inline-block;
+			min-width: 84px;
+		}
+
+		.pillars-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 12px;
+			margin-top: 12px;
+		}
+
+		.pillar-card {
+			border: 1px solid var(--light-gray);
+			border-top: 3px solid var(--muted-green);
+			border-radius: 12px;
+			padding: 14px;
+			background: var(--white);
+		}
+
+		.pillar-card h3 {
+			font-family: var(--font-title);
+			font-size: 1rem;
+			color: var(--dark-green);
+			margin-bottom: 6px;
+		}
+
+		.pillar-card p {
+			font-size: 0.86rem;
+			margin-bottom: 0;
+		}
+
+		.medicine-graphic {
+			margin-top: 14px;
+			display: grid;
+			grid-template-columns: 1fr auto 1fr;
+			gap: 12px;
+			align-items: stretch;
+		}
+
+		.medicine-graphic__block {
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			padding: 14px;
+			background: var(--off-white);
+		}
+
+		.medicine-graphic__title {
+			font-family: var(--font-title);
+			font-size: 0.95rem;
+			color: var(--dark-green);
+			margin-bottom: 8px;
+		}
+
+		.medicine-graphic__list {
+			display: grid;
+			gap: 7px;
+		}
+
+		.medicine-graphic__pill {
+			font-size: 0.74rem;
+			padding: 7px 10px;
+			border-radius: 999px;
+			border: 1px solid var(--light-gray);
+			background: #fff;
+			color: var(--text-mid);
+		}
+
+		.medicine-graphic__arrow {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			color: var(--muted-green);
+			font-weight: 700;
+			padding: 0 4px;
+		}
+
+		.healthspan-graphic {
+			margin-top: 14px;
+			border: 1px solid var(--light-gray);
+			border-radius: 12px;
+			padding: 14px;
+			background: #fff;
+		}
+
+		.healthspan-graphic__legend {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+			margin-bottom: 12px;
+		}
+
+		.healthspan-graphic__legend-item {
+			font-size: 0.7rem;
+			color: var(--text-mid);
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+		}
+
+		.healthspan-graphic__dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 999px;
+			display: inline-block;
+		}
+
+		.healthspan-graphic__dot--lifespan {
+			background: var(--taupe);
+		}
+
+		.healthspan-graphic__dot--healthspan {
+			background: var(--muted-green);
+		}
+
+		.healthspan-bars {
+			display: grid;
+			gap: 8px;
+		}
+
+		.healthspan-row {
+			display: grid;
+			grid-template-columns: 140px 1fr;
+			gap: 10px;
+			align-items: center;
+		}
+
+		.healthspan-row__label {
+			font-size: 0.72rem;
+			font-weight: 700;
+			letter-spacing: 0.4px;
+			text-transform: uppercase;
+			color: var(--dark-green);
+		}
+
+		.healthspan-row__track {
+			height: 18px;
+			border: 1px solid var(--light-gray);
+			border-radius: 999px;
+			background: var(--off-white);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.healthspan-row__lifespan,
+		.healthspan-row__healthspan {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			border-radius: 999px;
+		}
+
+		.healthspan-row__lifespan {
+			background: rgba(174, 162, 146, 0.45);
+			width: var(--life, 95%);
+		}
+
+		.healthspan-row__healthspan {
+			background: var(--muted-green);
+			width: var(--health, 75%);
+		}
+
+		.footer {
+			background: var(--dark-green);
+			color: rgba(255, 255, 255, 0.52);
+			padding: 20px 36px;
+			font-size: 0.74rem;
+			display: flex;
+			justify-content: space-between;
+			gap: 12px;
+			flex-wrap: wrap;
+		}
+
+		.footer .brand {
+			display: inline-flex;
+			align-items: center;
+		}
+
+		.inside-page {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+
+		.inside-page--feature {
+			background: linear-gradient(180deg, var(--dark-green) 0%, #1f2a22 100%);
+			color: #fff;
+			border-top: none !important;
+			padding: 16mm 14mm;
+		}
+
+		.inside-page--feature .assessment-shell {
+			background: transparent;
+			border: none;
+			border-radius: 0;
+			padding: 0;
+			margin-top: 0;
+		}
+
+		.inside-title {
+			font-family: var(--font-title);
+			font-size: 3.1rem;
+			line-height: 1.02;
+			font-weight: 400;
+			letter-spacing: -0.4px;
+			color: rgba(255, 255, 255, 0.96);
+			max-width: 420px;
+			margin-top: 6mm;
+		}
+
+		.inside-divider {
+			height: 1px;
+			background: rgba(255, 255, 255, 0.2);
+			margin: 14mm 0 12mm;
+		}
+
+		.inside-page--feature .area-grid {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 14mm 8mm;
+			margin-top: 0;
+		}
+
+		.inside-page--feature .area-item {
+			border: none;
+			background: transparent;
+			min-height: 108px;
+			padding: 0 4px;
+			gap: 12px;
+		}
+
+		.inside-page--feature .area-item__icon {
+			width: 100px;
+			height: 100px;
+			border: none;
+			color: #e2d2be;
+			font-size: 0.95rem;
+			font-weight: 600;
+		}
+
+		.inside-page--feature .area-item__label {
+			font-size: 0.8rem;
+			line-height: 1.35;
+			font-weight: 500;
+			color: rgba(255, 255, 255, 0.95);
+			max-width: 160px;
+			margin: 0 auto;
+		}
+
+		.note-page {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			background: var(--light-gray);
+			padding: 20mm 16mm 16mm !important;
+			border-top: none !important;
+		}
+
+		.clinical-headline {
+			font-family: var(--font-title);
+			font-size: 2.1rem;
+			line-height: 1.25;
+			color: var(--text-mid);
+			text-align: center;
+			max-width: 340px;
+			margin: 0 auto 20mm;
+			font-weight: 400;
+			letter-spacing: -0.3px;
+		}
+
+		.clinical-body {
+			text-align: center;
+			max-width: 320px;
+			margin: 0 auto 16mm;
+		}
+
+		.clinical-body p {
+			font-size: 0.86rem;
+			line-height: 1.6;
+			color: var(--text-mid);
+			margin-bottom: 8mm;
+		}
+
+		.clinical-body p:last-child {
+			margin-bottom: 0;
+		}
+
+		.clinical-image {
+			width: 90px;
+			height: 90px;
+			border-radius: 999px;
+			margin: 0 auto 10mm;
+			background: #fff;
+			border: 2px solid rgba(174, 162, 146, 0.3);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--taupe);
+			font-size: 3rem;
+			overflow: hidden;
+		}
+
+		.clinical-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.clinical-signature {
+			text-align: center;
+			margin-top: 12mm;
+		}
+
+		.clinical-name {
+			font-size: 0.68rem;
+			font-weight: 800;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: var(--dark-green);
+			margin-bottom: 2px;
+		}
+
+		.clinical-title {
+			font-size: 0.64rem;
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+			color: var(--taupe);
+			margin-bottom: 2px;
+		}
+
+		.clinical-role {
+			font-size: 0.62rem;
+			font-weight: 700;
+			letter-spacing: 1.2px;
+			text-transform: uppercase;
+			color: var(--dark-green);
+		}
+
+		.clinical-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 999px;
+			background: var(--taupe);
+			margin: 18mm auto 0;
+		}
+
+		.testimonial-page {
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-color: var(--light-gray);
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 16mm 14mm;
+		}
+
+		.testimonial-page::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.35);
+			z-index: 1;
+		}
+
+		.testimonial-content {
+			position: relative;
+			z-index: 2;
+			text-align: center;
+			max-width: 460px;
+		}
+
+		.testimonial-quote {
+			font-family: var(--font-title);
+			font-size: 2.2rem;
+			line-height: 1.25;
+			color: #fff;
+			margin-bottom: 8mm;
+			font-weight: 400;
+		}
+
+		.testimonial-attribution {
+			font-size: 0.62rem;
+			letter-spacing: 2.5px;
+			text-transform: uppercase;
+			color: rgba(255, 255, 255, 0.85);
+			font-weight: 700;
+			margin-bottom: 8mm;
+		}
+
+		.testimonial-line {
+			width: 1px;
+			height: 80px;
+			background: rgba(255, 255, 255, 0.4);
+			margin: 0 auto;
+			position: relative;
+		}
+
+		.testimonial-line::before,
+		.testimonial-line::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 8px;
+			height: 8px;
+			border-radius: 999px;
+			background: rgba(255, 255, 255, 0.7);
+		}
+
+		.testimonial-line::before {
+			top: 0;
+		}
+
+		.testimonial-line::after {
+			bottom: 0;
+		}
+
+		.product-page {
+			background: var(--beige);
+			color: var(--text-dark);
+			padding: 18mm 16mm;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+		}
+
+		.product-intro {
+			font-size: 0.72rem;
+			line-height: 1.5;
+			color: var(--text-mid);
+			margin-bottom: 8mm;
+			max-width: 340px;
+		}
+
+		.product-price {
+			font-family: var(--font-title);
+			font-size: 1.4rem;
+			color: var(--text-dark);
+			margin-bottom: 4mm;
+			font-weight: 400;
+		}
+
+		.product-title {
+			font-family: var(--font-title);
+			font-size: 4.5rem;
+			line-height: 0.95;
+			color: var(--text-dark);
+			margin-bottom: 2mm;
+			font-weight: 400;
+			letter-spacing: -1px;
+		}
+
+		.product-subtitle {
+			font-size: 0.85rem;
+			letter-spacing: 6px;
+			text-transform: uppercase;
+			color: var(--text-mid);
+			font-weight: 700;
+			margin-bottom: 10mm;
+		}
+
+		.product-divider {
+			width: 200px;
+			height: 1px;
+			background: rgba(109, 137, 123, 0.3);
+			margin: 0 auto 10mm;
+		}
+
+		.product-features {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 8mm 6mm;
+			max-width: 160mm;
+			margin: 0 auto;
+		}
+
+		.product-feature {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 6mm;
+		}
+
+		.product-feature__icon {
+			width: 60px;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.product-feature__icon svg {
+			width: 44px;
+			height: 44px;
+			stroke: var(--text-mid);
+			fill: none;
+			stroke-width: 0.9;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
+
+		.product-feature__label {
+			font-size: 0.7rem;
+			line-height: 1.3;
+			color: var(--text-mid);
+			font-weight: 400;
+		}
+
+		.inside-page--feature .area-item__icon svg {
+			width: 56px;
+			height: 56px;
+			stroke: #e2d2be;
+			fill: none;
+			stroke-width: 0.9;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+		}
+
+		.details-page {
+			background: #f5f3f0;
+			color: var(--text-dark);
+			padding: 16mm 14mm;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.details-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 8mm;
+			padding-bottom: 4mm;
+			border-bottom: 1px solid rgba(109, 137, 123, 0.25);
+		}
+
+		.details-header__left {
+			font-size: 0.68rem;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			font-weight: 700;
+			color: var(--text-mid);
+		}
+
+		.details-header__right {
+			font-size: 0.68rem;
+			letter-spacing: 3px;
+			text-transform: uppercase;
+			font-weight: 700;
+			color: var(--text-mid);
+		}
+
+		.details-content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 6mm 8mm;
+			font-size: 0.75rem;
+			line-height: 1.65;
+		}
+
+		.details-item {
+			margin-bottom: 5mm;
+		}
+
+		.details-item__title {
+			font-weight: 700;
+			color: var(--text-dark);
+			margin-bottom: 2mm;
+			font-size: 0.76rem;
+		}
+
+		.details-item__text {
+			color: var(--text-mid);
+			font-size: 0.72rem;
+			line-height: 1.6;
+		}
+
+		.details-item__text strong {
+			font-weight: 700;
+			color: var(--text-dark);
+		}
+
+		@media (max-width: 900px) {
+			.meta-grid, .cards, .pillars-grid, .medicine-graphic, .kpi-grid, .medicine-models, .offer-grid, .split-detail, .feature-band, .area-grid, .detail-columns, .assessment-head { grid-template-columns: 1fr; }
+			.medicine-graphic__arrow { transform: rotate(90deg); }
+			.healthspan-row { grid-template-columns: 1fr; }
+			.assessment-head__meta { text-align: left; }
+		}
+
+		@media print {
+			body { padding: 0; background: #fff; }
+			.topbar { display: none !important; }
+			.report { border: 0; border-radius: 0; box-shadow: none; max-width: 100%; }
+			.a4-page { width: 210mm; height: 297mm; margin: 0; padding: 14mm 12mm; page-break-after: always; break-after: page; overflow: hidden; }
+			.a4-page:last-of-type { page-break-after: auto; break-after: auto; }
+			.section { break-inside: avoid; page-break-inside: avoid; }
+		}
+	</style>
+</head>
+<body>
+	<div class="topbar">
+		<div class="brand brand-lockup" aria-label="myGP Clinic logo">
+			<div class="brand-lockup__main">my<span>GP</span></div>
+			<div class="brand-lockup__sub">Clinic</div>
+		</div>
+		<button class="btn" onclick="exportServiceDescriptionPdf()">Print / Save PDF</button>
+	</div>
+
+	<main id="pdf-root" class="report">
+		<section class="cover a4-page" id="cover">
+			<div class="cover-logo">
+				<div class="brand-lockup brand-lockup--light" aria-label="myGP Clinic logo">
+					<div class="brand-lockup__main">my<span>GP</span></div>
+					<div class="brand-lockup__sub">Clinic</div>
+				</div>
+			</div>
+			<div class="cover-kicker">myGP Clinic Preventative &amp; Longitudinal Care</div>
+			<h1>myGP Signature Longevity Assessment</h1>
+			<div class="cover-context">Precision prevention to extend lifespan and protect healthspan.</div>
+			<div class="cover-divider" aria-hidden="true"></div>
+			<div class="cover-points">
+				<div class="cover-point">Depth before speed</div>
+				<div class="cover-point">Consultation before investigation</div>
+				<div class="cover-point">GP leadership</div>
+				<div class="cover-point">Longitudinal review</div>
+			</div>
+		</section>
+
+
+
+		<section class="section a4-page inside-page inside-page--feature" id="common-structure">
+			<div class="assessment-shell">
+				<h2 class="inside-title">World class<br/>health assessments</h2>
+				<div class="inside-divider" aria-hidden="true"></div>
+
+				<div class="area-grid">
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,3)"><circle cx="3" cy="2" r="2"/><circle cx="13" cy="2" r="2"/><path d="M0.5 16c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5"/><path d="M8.5 16c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5"/></g></svg></div><div class="area-item__label">In-depth consultations with expert doctors</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(1,2)"><circle cx="3" cy="2" r="1.5"/><circle cx="10" cy="1" r="1.5"/><circle cx="17" cy="2" r="1.5"/><path d="M.5 14c0-1.5 1-3 2.5-3"/><path d="M5 14c0-2 1.5-3.5 4-3.5s4 1.5 4 3.5"/><path d="M14.5 11c1.5 0 2.5 1.5 2.5 3"/></g></svg></div><div class="area-item__label">Dedicated clinical team</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(1,2)"><path d="M1 14V4L6 1v13"/><path d="M7 14V2l5-1v13"/><path d="M12 14V4l5-1v11"/><path d="M3 9h2M9 6h2M14 10h2"/></g></svg></div><div class="area-item__label">On one day<br/>Under one roof</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><circle cx="8" cy="8" r="5"/><path d="M13 13h4M14.5 11v4"/><path d="M5.5 8.5c1-1 3-1 4 0M5.5 10.5c1 1 3 1 4 0"/></g></svg></div><div class="area-item__label">Cutting-edge MRI scans with AI</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,1)"><path d="M8 2h3M9 2v5L6 11a1.5 1.5 0 0 0 1.5 2h4a1.5 1.5 0 0 0 1.5-2L11 7V2"/><path d="M7 11h4"/></g></svg></div><div class="area-item__label">Innovative brain imaging</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,1)"><path d="M8 16s-4-2-4-6c0-1.5 1.2-2.5 2.5-2.5s1.7.5 2.5 1.2c.8-.7 1.2-1.2 2.5-1.2 1.3 0 2.5 1 2.5 2.5 0 4-4 6-4 6Z"/><path d="M6 9.5h2M7 8.5v2"/></g></svg></div><div class="area-item__label">Advanced cardiac assessment</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(1,2)"><path d="M2 8c2 1 2 6 0 7M5 8.5c1.3.8 1.3 5 0 6M8 10c.8.5.8 3 0 4M12 11h3"/></g></svg></div><div class="area-item__label">Detailed ultrasound scans</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><circle cx="8" cy="8" r="5"/><path d="M11 11l4 4M6 8h4M8 6v4M10.5 9.5r1"/></g></svg></div><div class="area-item__label">Consultant-led mole check</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,1)"><path d="M7 3h3M8 3v5l-3 6.5c0 1 .8 1.8 1.8 1.8h4.4c1 0 1.8-.8 1.8-1.8L10 8V3"/><path d="M6.5 11h4"/></g></svg></div><div class="area-item__label">Extensive laboratory testing</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><rect x="1" y="2" width="12" height="10" rx="1.5" ry="1.5"/><path d="M4 5h7M4 8h4"/><circle cx="11" cy="8.5" r="0.7"/></g></svg></div><div class="area-item__label">Same-day results</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><circle cx="4" cy="8" r="1.5"/><circle cx="10" cy="3" r="1.5"/><circle cx="16" cy="8" r="1.5"/><circle cx="10" cy="13" r="1.5"/><path d="M5 7L9 4M11 4L15 7M15 9L11 12M9 12L5 9"/></g></svg></div><div class="area-item__label">Network of specialists</div></div>
+					<div class="area-item"><div class="area-item__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><path d="M4 14V3l2-1h4"/><path d="M10 2v12M10 7h2M10 10h2"/></g></svg></div><div class="area-item__label">Luxury client suite</div></div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section a4-page note-page" id="optional-addons">
+			<h2 class="clinical-headline">Defining the Future of<br/>Preventive Medicine</h2>
+			<div class="clinical-body">
+				<p><strong>Consultant-led. Context-driven. Designed for longevity.</strong></p>
+				<p>Preventive medicine must evolve.</p>
+				<p>It cannot be driven by technology alone, nor reduced to a single day of testing. It requires experienced clinical judgement, proportionate investigation and disciplined follow-up.</p>
+				<p>At myGP, our Signature Longevity Assessment is led by Family Medicine Consultants and built around long-term partnership.</p>
+				<p>Every assessment begins and ends with an extended consultation. Advanced imaging, cardiovascular diagnostics and laboratory analysis are interpreted within your full clinical context — not in isolation.</p>
+				<p>We focus on early identification of cardiovascular disease, cancer risk and metabolic dysfunction — but more importantly, we focus on modifying risk over time.</p>
+				<p>This is not reassurance theatre.</p>
+				<p><strong>It is structured, consultant-led longevity medicine — designed to protect healthspan and sustain performance for decades to come.</strong></p>
+			</div>
+			<div class="clinical-signature">
+				<div class="clinical-name">Dr Stephen Coogan</div>
+				<div class="clinical-title">MBChB (hons) MRCGP</div>
+				<div class="clinical-role">CEO & Founder myGP Clinic</div>
+			</div>
+			<div class="clinical-dot"></div>
+		</section>
+
+		<section class="a4-page testimonial-page" id="testimonial" style="background-image: url('reception-bg.jpg');">
+			<div class="testimonial-content">
+				<div class="testimonial-quote">"The best medical I have ever had. The whole day was exceptional."</div>
+				<div class="testimonial-attribution">myGP Client</div>
+				<div class="testimonial-line"></div>
+			</div>
+		</section>
+
+		<section class="a4-page product-page" id="product">
+			<div class="product-intro">A Consultant-Led Comprehensive Longevity Assessment Integrating Advanced Imaging, Functional Testing and Strategic Risk Modification</div>
+			<div class="product-price">£6,999</div>
+			<h2 class="product-title">Signature Longevity<br/>Assessment</h2>
+			<div class="product-divider"></div>
+			<div class="product-features">
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,3)"><circle cx="3" cy="2" r="2"/><circle cx="13" cy="2" r="2"/><path d="M0.5 16c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5"/><path d="M8.5 16c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5"/></g></svg></div><div class="product-feature__label">In-depth consultations<br/>with expert doctors</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(1,2)"><circle cx="3" cy="2" r="1.5"/><circle cx="10" cy="1" r="1.5"/><circle cx="17" cy="2" r="1.5"/><path d="M.5 14c0-1.5 1-3 2.5-3"/><path d="M5 14c0-2 1.5-3.5 4-3.5s4 1.5 4 3.5"/><path d="M14.5 11c1.5 0 2.5 1.5 2.5 3"/></g></svg></div><div class="product-feature__label">Dedicated<br/>clinical team</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><circle cx="8" cy="8" r="5"/><path d="M13 13h4M14.5 11v4"/><path d="M5.5 8.5c1-1 3-1 4 0M5.5 10.5c1 1 3 1 4 0"/></g></svg></div><div class="product-feature__label">Cutting-edge<br/>MRI scans</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,1)"><path d="M8 2h3M9 2v5L6 11a1.5 1.5 0 0 0 1.5 2h4a1.5 1.5 0 0 0 1.5-2L11 7V2"/><path d="M7 11h4"/></g></svg></div><div class="product-feature__label">AI and AR<br/>brain imaging</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,1)"><path d="M8 16s-4-2-4-6c0-1.5 1.2-2.5 2.5-2.5s1.7.5 2.5 1.2c.8-.7 1.2-1.2 2.5-1.2 1.3 0 2.5 1 2.5 2.5 0 4-4 6-4 6Z"/><path d="M6 9.5h2M7 8.5v2"/></g></svg></div><div class="product-feature__label">Pioneering<br/>cardiac assessment</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(1,2)"><path d="M2 8c2 1 2 6 0 7M5 8.5c1.3.8 1.3 5 0 6M8 10c.8.5.8 3 0 4M12 11h3"/></g></svg></div><div class="product-feature__label">Detailed<br/>ultrasound scans</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><circle cx="8" cy="8" r="5"/><path d="M11 11l4 4M6 8h4M8 6v4M10.5 9.5r1"/></g></svg></div><div class="product-feature__label">Consultant-led<br/>mole check</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,1)"><path d="M7 3h3M8 3v5l-3 6.5c0 1 .8 1.8 1.8 1.8h4.4c1 0 1.8-.8 1.8-1.8L10 8V3"/><path d="M6.5 11h4"/></g></svg></div><div class="product-feature__label">Extensive<br/>laboratory testing</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(1,2)"><path d="M1 14V4L6 1v13"/><path d="M7 14V2l5-1v13"/><path d="M12 14V4l5-1v11"/><path d="M3 9h2M9 6h2M14 10h2"/></g></svg></div><div class="product-feature__label">On one day<br/>Under one roof</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><rect x="1" y="2" width="12" height="10" rx="1.5" ry="1.5"/><path d="M4 5h7M4 8h4"/><circle cx="11" cy="8.5" r="0.7"/></g></svg></div><div class="product-feature__label">Same-day<br/>results</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><circle cx="4" cy="8" r="1.5"/><circle cx="10" cy="3" r="1.5"/><circle cx="16" cy="8" r="1.5"/><circle cx="10" cy="13" r="1.5"/><path d="M5 7L9 4M11 4L15 7M15 9L11 12M9 12L5 9"/></g></svg></div><div class="product-feature__label">Network of<br/>specialists</div></div>
+				<div class="product-feature"><div class="product-feature__icon"><svg viewBox="0 0 24 24"><g transform="translate(2,2)"><path d="M4 14V3l2-1h4"/><path d="M10 2v12M10 7h2M10 10h2"/></g></svg></div><div class="product-feature__label">Luxury client<br/>suite</div></div>
+			</div>
+		</section>
+
+		<section class="a4-page details-page" id="details">
+			<div class="details-header">
+				<div class="details-header__left">THE DETAILS</div>
+				<div class="details-header__right">UP TO 8 HOURS</div>
+			</div>
+			<div class="details-content">
+				<div class="details-item">
+					<div class="details-item__title">Consultation and examination</div>
+					<div class="details-item__text">Spend a full hour with your Premium Consultant Doctor discussing your health, history and concerns. A full physical examination is included with prostate or gynaecological screening if clinically indicated.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Mole check</div>
+					<div class="details-item__text">Our Consultant Dermatologist will perform a full body mole examination using a dermatoscope to identify skin cancers such as melanoma, basal cell carcinomas and squamous cell carcinomas with immediate feedback and advice.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Blood and urine analysis</div>
+					<div class="details-item__text">Over 50 blood tests assess organ function, cardiovascular risk, hormones and nutrition. Urine analysis checks key health markers.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Body composition</div>
+					<div class="details-item__text">Our advanced InBody570 provides an extensive map of your body composition, fat vs. muscle ratio.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title"><strong>PLAC, ApoA, ApoB and Lp(a) blood tests</strong></div>
+					<div class="details-item__text">These specialist tests provide deeper insights into cardiovascular risk than standard lipid panel. Treatment, Lp-PLAC measures artery inflammation, ApoA reflects 'good' cholesterol, ApoB indicates 'bad' cholesterol particles and Lp(a) identifies inherited heart risk.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Grip strength</div>
+					<div class="details-item__text">Our advanced InBody570 provides a measure of muscle health, helping assess overall strength, physical resilience and indicators of longevity.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">MRI scans</div>
+					<div class="details-item__text">Relax in our state-of-the-art MRI scanners with audio-visual entertainment while our team of Senior Radiographers scan your brain, heart, liver, abdomen and pelvis.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Lung function</div>
+					<div class="details-item__text">Spirometry measures breathing capacity and helps detect lung disease.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title"><strong>BrainKey®</strong></div>
+					<div class="details-item__text">MRI scans of the brain with analysis of over 25 regions to calculate brain age. A 3D dashboard reveals brain health and personalised lifestyle, exercise and nutrition advice.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">ECG</div>
+					<div class="details-item__text">A resting electrocardiogram and exercise stress echocardiogram assess your heart's function and function, Performed on a treadmill or bike, your heart's electrical activity is monitored under physical exertion, detect coronary disease, rhythm abnormalities and stress markers of cardiovascular fitness.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title"><strong>Oxygenation-Sensitive Cardiac MRI®</strong></div>
+					<div class="details-item__text">Partnership with King's, we are one of only a handful in the world's first OS-CMR in preventive health. This three-minute, scan measures artery health and function. This allows us to assess coronary disease's function without radiation.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">VO<sub>2</sub>max</div>
+					<div class="details-item__text">Using advanced seismocardiography and AI to analyse your heart's mechanical vibrations, we use a Sennott® Sensor to calculate your VO<sub>2</sub>max – an estimate in under three minutes.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Musculoskeletal scan</div>
+					<div class="details-item__text">Your choice of one or bone scan such as knee, shoulder or hip. Our 3T MRI provides gold-standard imaging for detecting ligament, tendon, cartilage and subtle bone injuries.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Audiometry</div>
+					<div class="details-item__text">The hearing test will be measured to a range of frequencies.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title"><strong>Biparametric prostate MRI*®</strong></div>
+					<div class="details-item__text">For men over 50. MRI, combined with a consultation, PSA blood test and ultrasound, is reviewed by a Consultant Urologist and Radiologist to provide a clear assessment of prostate health.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Radiologist consultation</div>
+					<div class="details-item__text">Experts explain results, including a video of your beating heart, with your Consultant Radiologist.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title"><strong>Ultrasound examinations</strong></div>
+					<div class="details-item__text">Our dedicated Sonographer will scan your thyroid, reproductive organs (pelvic for women or testes/prostate for men, ultrasound, liver, gallbladder, and pancreas, kidneys, spleen, bladder and ovaries or prostate and bladder.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title"><strong>Immersive Health® VR Scan*®</strong></div>
+					<div class="details-item__text">Your brain scans are transformed into a 3D Augmented Reality model so your Consultant Radiologist can take you inside your brain for an interactive, immersive consultation.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Bone health</div>
+					<div class="details-item__text">Ebneo® ultrasound uses advanced ultrasound technology to assess bone quality and fracture risk in women over 40.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Results consultation</div>
+					<div class="details-item__text">Your Premium Doctor explains your findings, lifestyle optimisation recommendations and. personalised treatment and.</div>
+				</div>
+				<div class="details-item">
+					<div class="details-item__title">Comprehensive report</div>
+					<div class="details-item__text">A detailed report includes your results, images and a personalised lifestyle plan.</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script>
+		function exportServiceDescriptionPdf() {
+			const pages = Array.from(document.querySelectorAll('#pdf-root .a4-page'));
+			if (!pages.length) {
+				alert('No printable pages found.');
+				return;
+			}
+
+			const saveViaPdfFallback = () => {
+				const report = document.getElementById('pdf-root');
+				if (!report || typeof window.html2pdf !== 'function') {
+					alert('Printing is not available in this view. Please open in a browser tab and use Print / Save PDF.');
+					return;
+				}
+
+				window.html2pdf()
+					.set({
+						filename: 'mygp-service-description.pdf',
+						margin: [10, 10, 10, 10],
+						image: { type: 'png', quality: 1 },
+						html2canvas: {
+							scale: 4,
+							useCORS: true,
+							scrollY: 0,
+							backgroundColor: '#ffffff',
+							windowWidth: 1400
+						},
+						jsPDF: {
+							unit: 'mm',
+							format: 'a4',
+							orientation: 'portrait',
+							compress: false,
+							precision: 16
+						},
+						pagebreak: { mode: ['css'] }
+					})
+					.from(report)
+					.save();
+			};
+
+			const styleTag = document.querySelector('style');
+			const inlineStyles = styleTag ? styleTag.textContent : '';
+			const pageHtml = pages.map((page) => page.outerHTML).join('');
+			const printWindow = window.open('', '_blank', 'noopener,noreferrer,width=1200,height=900');
+
+			if (!printWindow) {
+				saveViaPdfFallback();
+				return;
+			}
+
+			printWindow.document.open();
+			printWindow.document.write(`
+				<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8" />
+					<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+					<title>mygp-service-description</title>
+					<link href="https://fonts.googleapis.com/css2?family=Questrial&family=Muli:wght@300;400;600;700;800&family=Mulish:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+					<style>
+						${inlineStyles}
+						html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; }
+						.topbar { display: none !important; }
+						.report { width: 210mm !important; max-width: 210mm !important; margin: 0 auto !important; background: #fff !important; }
+						@page { size: A4; margin: 10mm; }
+						@media print {
+							html, body { margin: 0 !important; padding: 0 !important; }
+							.a4-page { width: 210mm !important; height: 297mm !important; margin: 0 !important; overflow: hidden !important; page-break-after: always !important; break-after: page !important; }
+							.a4-page:last-of-type { page-break-after: auto !important; break-after: auto !important; }
+						}
+					</style>
+				</head>
+				<body>
+					<main class="report" id="pdf-root-print">${pageHtml}</main>
+				</body>
+				</html>
+			`);
+			printWindow.document.close();
+
+			const runPrint = () => {
+				try {
+					printWindow.focus();
+					printWindow.print();
+				} catch (error) {
+					saveViaPdfFallback();
+				}
+			};
+
+			if (printWindow.document.fonts && printWindow.document.fonts.ready) {
+				printWindow.document.fonts.ready.then(() => setTimeout(runPrint, 200));
+			} else {
+				setTimeout(runPrint, 400);
+			}
+		}
+	</script>
+</body>
+</html>
