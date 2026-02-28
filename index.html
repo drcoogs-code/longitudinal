@@ -17,25 +17,24 @@
             --font-body: 'Muli', 'Mulish', sans-serif;
         }
         html, body {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
             padding: 0;
-            background: var(--white);
             box-sizing: border-box;
+            background: var(--white);
         }
         body {
             font-family: var(--font-body);
             color: var(--dark-green);
         }
         section {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
-            padding: 18mm 14mm 18mm 14mm;
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
+            padding: 64px 24px;
             box-sizing: border-box;
-            page-break-after: always;
-            background: var(--white);
+            position: relative;
         }
         .cover {
             width: 100vw;
@@ -98,14 +97,13 @@
             text-align: center;
         }
         .reverse-cover {
-            width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
-            padding: 18mm 14mm 18mm 14mm;
-            box-sizing: border-box;
             background: var(--dark-green);
-            page-break-before: always;
-            page-break-after: always;
+            width: 100vw;
+            min-height: 100vh;
+            margin: 0;
+            padding: 64px 24px;
+            box-sizing: border-box;
+            position: relative;
         }
         @media print {
             .reverse-cover {
@@ -134,22 +132,17 @@
         }
         .icon-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(4, 1fr);
-            gap: 100px 80px;
-            max-width: 1100px;
-            height: 70vh;
-            align-items: stretch;
-            justify-items: center;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 48px;
+            width: 80%;
+            max-width: 900px;
             margin: 0 auto;
         }
         .icon-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            height: 100%;
+            padding: 16px 0;
         }
         .icon-placeholder {
             width: 64px;
@@ -379,7 +372,7 @@
     </style>
 </head>
 <body>
-    <section class="cover">
+    <section class="cover" style="position: relative;">
         <div class="logo">my<span>GP</span> Clinic</div>
         <div class="subtitle">Preventative &amp; Longitudinal Care</div>
         <div class="headline">Signature Longevity Assessment</div>
@@ -392,8 +385,9 @@
             <div class="point">Longitudinal review</div>
         </div>
     </section>
-    <section class="reverse-cover" style="background: #262b24; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <div class="icon-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; width: 80%; max-width: 900px; margin: 0 auto;">
+    <section class="reverse-cover" style="position: relative;">
+        <div class="reverse-title" style="color: #fff; font-size: 2.2rem; font-family: var(--font-title); text-align: center; margin-bottom: 32px; letter-spacing: 0.04em;">The Architecture of Preventive Medicine</div>
+        <div class="icon-grid">
             <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
                 <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="10" /><circle cx="50" cy="50" r="20" /><circle cx="50" cy="50" r="30" /><line x1="50" y1="15" x2="50" y2="85" /></g></svg>
                 <div class="icon-label">Depth Before Speed</div>
@@ -443,8 +437,9 @@
                 <div class="icon-label">Longitudinal Partnership</div>
             </div>
         </div>
+        <div class="page-number" style="position: absolute; bottom: 24mm; right: 24mm; color: #fff; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">2</div>
     </section>
-    <section class="page-three">
+    <section class="page-three" style="position: relative;">
         <div class="page-three-content">
             <h1 class="page-three-title">Precision Preventive Medicine</h1>
             <div class="page-three-body">
@@ -468,75 +463,82 @@
             </div>
             <div class="page-three-divider"></div>
         </div>
+        <div class="page-number" style="position: absolute; bottom: 24mm; right: 24mm; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">3</div>
     </section>
-    <section class="page-four">
-        <div class="page-four-content">
-            <h1 class="page-four-title">The Philosophy of Our Approach</h1>
-            <div class="page-four-body philosophy-list creative-philosophy">
-                <div class="philosophy-grid">
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">01</span>
-                        <span class="philosophy-key">Depth Before Speed</span>
-                        <span class="philosophy-text">Most assessments are a snapshot; ours is a deep-dive interrogation. We prioritize the "why" over the "what," ensuring that every data point is contextualized within your unique biological narrative before we act.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">02</span>
-                        <span class="philosophy-key">Consultant-Led Medicine</span>
-                        <span class="philosophy-text">You are not managed by a protocol or a technician. Every decision is filtered through the clinical intuition of a senior specialist, ensuring that complex data is translated into nuanced, human-centric medical strategy.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">03</span>
-                        <span class="philosophy-key">Cardiovascular Intelligence</span>
-                        <span class="philosophy-text">We go beyond standard blood pressure and cholesterol. Using advanced hemodynamics and structural imaging, we map the real-time health of your vascular system to preempt events decades before they occur.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">04</span>
-                        <span class="philosophy-key">Cancer Vigilance</span>
-                        <span class="philosophy-text">Early detection is the only true cure. We utilize multi-modal screening—from liquid biopsies to whole-body imaging—to identify cellular shifts at the earliest possible stage of intercept.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">05</span>
-                        <span class="philosophy-key">Brain Longevity</span>
-                        <span class="philosophy-text">Cognitive health is the ultimate currency of aging. We assess neuro-vascular integrity and metabolic brain health to preserve executive function, memory, and mental agility for the long term.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">06</span>
-                        <span class="philosophy-key">Metabolic Precision</span>
-                        <span class="philosophy-text">Metabolism is the engine of aging. We analyze glucose dynamics, hormonal balance, and mitochondrial efficiency to optimize how your body processes energy and manages systemic inflammation.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">07</span>
-                        <span class="philosophy-key">Advanced Imaging</span>
-                        <span class="philosophy-text">We see what others miss. By utilizing the highest resolution MRI and CT protocols available, we create a transparent view of your internal landscape, removing the guesswork from preventive care.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">08</span>
-                        <span class="philosophy-key">Physiological Reserve</span>
-                        <span class="philosophy-text">It isn't just about being "not sick"; it's about being robust. We measure your body’s capacity to withstand stress—testing cardiorespiratory fitness and musculoskeletal integrity to ensure you remain high-functioning.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">09</span>
-                        <span class="philosophy-key">Lifestyle Architecture</span>
-                        <span class="philosophy-text">Health isn't found in a pill; it is built in the gaps between appointments. We provide a structural blueprint for your sleep, nutrition, and movement, engineered to fit the demands of a high-performance life.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">10</span>
-                        <span class="philosophy-key">Psychological Resilience</span>
-                        <span class="philosophy-text">A high-functioning body requires a regulated nervous system. We integrate neuro-performance and stress-management metrics to ensure your mental state supports your physical longevity goals.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">11</span>
-                        <span class="philosophy-key">Data-Guided Insight</span>
-                        <span class="philosophy-text">Data without direction is noise. We aggregate your biomarkers into a clean, actionable dashboard, allowing us to make evidence-based adjustments to your plan with surgical precision.</span>
-                    </div>
-                    <div class="philosophy-block">
-                        <span class="philosophy-number">12</span>
-                        <span class="philosophy-key">Longitudinal Partnership</span>
-                        <span class="philosophy-text">We are the stewards of your health over time. This is not a one-off check-up, but a continuous, evolving collaboration designed to adapt as your biology and your life goals change.</span>
-                    </div>
-                </div>
+    <section class="page-four" style="position: relative; min-height: 100vh; width: 100vw; margin: 0; padding: 64px 24px; box-sizing: border-box; background: var(--white);">
+        <div class="philosophy-title" style="color: #262b24; font-size: 2rem; font-family: var(--font-title); text-align: center; margin-bottom: 32px; position: absolute; top: 32px; left: 0; width: 100vw;">Our Philosophy</div>
+        <div style="height: 64px;"></div>
+        <div class="philosophy-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; max-width: 900px; margin: 0 auto;">
+            <div class="philosophy-block">
+                <span class="philosophy-number">01</span>
+                <span class="philosophy-key">Depth Before Speed</span>
+                <span class="philosophy-text">Most assessments are a snapshot; ours is a deep-dive interrogation. We prioritize the "why" over the "what," ensuring that every data point is contextualized within your unique biological narrative before we act.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">02</span>
+                <span class="philosophy-key">Consultant-Led Medicine</span>
+                <span class="philosophy-text">You are not managed by a protocol or a technician. Every decision is filtered through the clinical intuition of a senior specialist, ensuring that complex data is translated into nuanced, human-centric medical strategy.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">03</span>
+                <span class="philosophy-key">Cardiovascular Intelligence</span>
+                <span class="philosophy-text">We go beyond standard blood pressure and cholesterol. Using advanced hemodynamics and structural imaging, we map the real-time health of your vascular system to preempt events decades before they occur.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">04</span>
+                <span class="philosophy-key">Cancer Vigilance</span>
+                <span class="philosophy-text">Early detection is the only true cure. We utilize multi-modal screening—from liquid biopsies to whole-body imaging—to identify cellular shifts at the earliest possible stage of intercept.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">05</span>
+                <span class="philosophy-key">Brain Longevity</span>
+                <span class="philosophy-text">Cognitive health is the ultimate currency of aging. We assess neuro-vascular integrity and metabolic brain health to preserve executive function, memory, and mental agility for the long term.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">06</span>
+                <span class="philosophy-key">Metabolic Precision</span>
+                <span class="philosophy-text">Metabolism is the engine of aging. We analyze glucose dynamics, hormonal balance, and mitochondrial efficiency to optimize how your body processes energy and manages systemic inflammation.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">07</span>
+                <span class="philosophy-key">Advanced Imaging</span>
+                <span class="philosophy-text">We see what others miss. By utilizing the highest resolution MRI and CT protocols available, we create a transparent view of your internal landscape, removing the guesswork from preventive care.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">08</span>
+                <span class="philosophy-key">Physiological Reserve</span>
+                <span class="philosophy-text">It isn't just about being "not sick"; it's about being robust. We measure your body’s capacity to withstand stress—testing cardiorespiratory fitness and musculoskeletal integrity to ensure you remain high-functioning.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">09</span>
+                <span class="philosophy-key">Lifestyle Architecture</span>
+                <span class="philosophy-text">Health isn't found in a pill; it is built in the gaps between appointments. We provide a structural blueprint for your sleep, nutrition, and movement, engineered to fit the demands of a high-performance life.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">10</span>
+                <span class="philosophy-key">Psychological Resilience</span>
+                <span class="philosophy-text">A high-functioning body requires a regulated nervous system. We integrate neuro-performance and stress-management metrics to ensure your mental state supports your physical longevity goals.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">11</span>
+                <span class="philosophy-key">Data-Guided Insight</span>
+                <span class="philosophy-text">Data without direction is noise. We aggregate your biomarkers into a clean, actionable dashboard, allowing us to make evidence-based adjustments to your plan with surgical precision.</span>
+            </div>
+            <div class="philosophy-block">
+                <span class="philosophy-number">12</span>
+                <span class="philosophy-key">Longitudinal Partnership</span>
+                <span class="philosophy-text">We are the stewards of your health over time. This is not a one-off check-up, but a continuous, evolving collaboration designed to adapt as your biology and your life goals change.</span>
             </div>
         </div>
+        <div class="page-number" style="position: absolute; bottom: 16mm; right: 24mm; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">4</div>
+    </section>
+    <section class="page-five" style="position: relative; min-height: 100vh; width: 100vw; margin: 0; padding: 64px 24px; box-sizing: border-box; background: var(--white);">
+        <div style="font-family: var(--font-title); font-size: 2rem; color: #262b24; text-align: center; margin-bottom: 32px;">Page Five Title</div>
+        <div style="font-family: var(--font-body); font-size: 1.1rem; color: #262b24; text-align: left; max-width: 800px; margin: 0 auto;">
+            <!-- Add your page five content here -->
+            This is a placeholder for page five. Please specify the content you want to include.
+        </div>
+        <div class="page-number" style="position: absolute; bottom: 48px; right: 48px; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">5</div>
     </section>
 </body>
 </html>
