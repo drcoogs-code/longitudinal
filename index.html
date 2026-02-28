@@ -56,6 +56,14 @@
         .logo span {
             color: var(--muted-green);
         }
+        .assessment-title {
+            color: var(--white);
+            font-size: 2rem;
+            font-family: var(--font-title);
+            text-align: center;
+            margin: 18px 0 8px 0;
+            letter-spacing: 0.03em;
+        }
         .subtitle {
             font-size: 1.1rem;
             color: var(--muted-green);
@@ -76,6 +84,15 @@
             font-weight: 600;
             margin-bottom: 1.5em;
             text-align: center;
+        }
+        .context {
+            position: relative;
+            top: -32px;
+            color: #fff;
+            font-size: 1.15rem;
+            font-family: var(--font-body);
+            text-align: center;
+            margin-bottom: 16px;
         }
         .divider {
             width: 60px;
@@ -373,16 +390,17 @@
 </head>
 <body>
     <section class="cover" style="position: relative;">
-        <div class="logo">my<span>GP</span> Clinic</div>
-        <div class="subtitle">Preventative &amp; Longitudinal Care</div>
+        <div style="position: absolute; top: 48px; left: 0; width: 100vw; text-align: center;">
+            <div class="logo" style="display: inline-block; color: #fff; font-size: 2.2rem; font-family: var(--font-title); letter-spacing: 0.04em; margin-bottom: 8px;">my<span>GP</span> Clinic</div><br>
+            <div class="assessment-title" style="color: #fff; font-size: 1.5rem; font-family: var(--font-title); margin-bottom: 4px;">myGP clinic Signature Health Assessment</div>
+            <div class="subtitle" style="color: #fff; font-size: 1.1rem; font-family: var(--font-title); margin-bottom: 0;">Preventative &amp; Longitudinal Care</div>
+        </div>
         <div class="headline">Signature Longevity Assessment</div>
-        <div class="context">Precision prevention to extend lifespan and protect healthspan.</div>
-        <div class="divider"></div>
-        <div class="points">
-            <div class="point">Depth before speed</div>
-            <div class="point">Consultation before investigation</div>
-            <div class="point">GP leadership</div>
-            <div class="point">Longitudinal review</div>
+        <div class="cover-points" style="position: absolute; bottom: 32px; right: 32px; text-align: right;">
+            <div style="color: #6d897b; font-size: 1.1rem; font-family: var(--font-title); margin-bottom: 4px;">Depth before speed</div>
+            <div style="color: #6d897b; font-size: 1.1rem; font-family: var(--font-title); margin-bottom: 4px;">Consultation before investigation</div>
+            <div style="color: #6d897b; font-size: 1.1rem; font-family: var(--font-title); margin-bottom: 4px;">GP leadership</div>
+            <div style="color: #6d897b; font-size: 1.1rem; font-family: var(--font-title);">Longitudinal review</div>
         </div>
     </section>
     <section class="reverse-cover" style="position: relative;">
@@ -454,7 +472,7 @@
                 <p>Designed to protect healthspan over decades, not days.</p>
             </div>
             <div class="page-three-profile">
-                <img src="drcooganwilmslow.jpg" alt="Dr Coogan" class="profile-img" />
+                <img src="drcooganwilmslow.jpg" alt="Profile" class="profile-img" />
                 <div class="profile-details">
                     <div class="profile-name">Dr Stephen Coogan MBChB MRCGP</div>
                     <div class="profile-title">Founder &amp; Chief Executive Officer</div>
@@ -466,7 +484,7 @@
         <div class="page-number" style="position: absolute; bottom: 24mm; right: 24mm; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">3</div>
     </section>
     <section class="page-four" style="position: relative; min-height: 100vh; width: 100vw; margin: 0; padding: 64px 24px; box-sizing: border-box; background: var(--white);">
-        <div class="philosophy-title" style="color: #262b24; font-size: 2rem; font-family: var(--font-title); text-align: center; margin-bottom: 32px; position: absolute; top: 32px; left: 0; width: 100vw;">Our Philosophy</div>
+        <div class="philosophy-title" style="color: #262b24; font-size: 2rem; font-family: var(--font-title); text-align: center; margin-bottom: 32px; position: absolute; top: 32px; left: 0; width: 100vw;">myGP clinic Signature Health Assessment Philosophy</div>
         <div style="height: 64px;"></div>
         <div class="philosophy-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; max-width: 900px; margin: 0 auto;">
             <div class="philosophy-block">
