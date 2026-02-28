@@ -16,12 +16,26 @@
             --font-title: 'Questrial', sans-serif;
             --font-body: 'Muli', 'Mulish', sans-serif;
         }
+        html, body {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 0;
+            background: var(--white);
+            box-sizing: border-box;
+        }
         body {
             font-family: var(--font-body);
-            background: var(--dark-green);
-            color: var(--white);
-            margin: 0;
-            padding: 0;
+            color: var(--dark-green);
+        }
+        section {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 18mm 14mm 18mm 14mm;
+            box-sizing: border-box;
+            page-break-after: always;
+            background: var(--white);
         }
         .cover {
             width: 100vw;
@@ -84,16 +98,26 @@
             text-align: center;
         }
         .reverse-cover {
-            width: 100vw;
-            height: 100vh;
-            min-height: 100vh;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 18mm 14mm 18mm 14mm;
+            box-sizing: border-box;
             background: var(--dark-green);
-            color: var(--white);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 48px 0 0 0;
+            page-break-before: always;
+            page-break-after: always;
+        }
+        @media print {
+            .reverse-cover {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0 auto;
+                padding: 18mm 14mm 18mm 14mm;
+                box-sizing: border-box;
+                background: var(--dark-green);
+                page-break-before: always;
+                page-break-after: always;
+            }
         }
         .reverse-title {
             font-family: var(--font-title);
@@ -187,11 +211,12 @@
             margin-bottom: 24px;
         }
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(38,43,36,0.10);
         }
         .profile-details {
             text-align: center;
@@ -367,181 +392,78 @@
             <div class="point">Longitudinal review</div>
         </div>
     </section>
-    <section class="reverse-cover">
-        <div class="reverse-title">The Architecture of Preventive Medicine</div>
-        <div class="reverse-divider"></div>
-        <div class="icon-grid">
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="50" cy="50" r="10" />
-                        <circle cx="50" cy="50" r="20" />
-                        <circle cx="50" cy="50" r="30" />
-                        <line x1="50" y1="15" x2="50" y2="85" />
-                      </g>
-                    </svg>
-                </div>
+    <section class="reverse-cover" style="background: #262b24; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="icon-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; width: 80%; max-width: 900px; margin: 0 auto;">
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="10" /><circle cx="50" cy="50" r="20" /><circle cx="50" cy="50" r="30" /><line x1="50" y1="15" x2="50" y2="85" /></g></svg>
                 <div class="icon-label">Depth Before Speed</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M30,30 L30,50 C30,65 50,75 50,75 C50,75 70,65 70,50 L70,30 Z" />
-                        <circle cx="30" cy="25" r="5" />
-                        <path d="M70,25 Q75,25 75,35" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30,30 L30,50 C30,65 50,75 50,75 C50,75 70,65 70,50 L70,30 Z" /><circle cx="30" cy="25" r="5" /><path d="M70,25 Q75,25 75,35" /></g></svg>
                 <div class="icon-label">Consultant-Led Medicine</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,80 C30,80 20,60 20,45 C20,30 35,20 50,35 C65,20 80,30 80,45 C80,60 70,80 50,80 Z" />
-                        <polyline points="25,50 40,50 45,35 55,65 60,50 75,50" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M50,80 C30,80 20,60 20,45 C20,30 35,20 50,35 C65,20 80,30 80,45 C80,60 70,80 50,80 Z" /><polyline points="25,50 40,50 45,35 55,65 60,50 75,50" /></g></svg>
                 <div class="icon-label">Cardiovascular Intelligence</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,15 L25,25 V50 C25,70 50,85 50,85 C50,85 75,70 75,50 V25 Z" />
-                        <circle cx="45" cy="42" r="2" fill="white" stroke="none"/>
-                        <circle cx="55" cy="48" r="1.5" fill="white" stroke="none"/>
-                        <circle cx="48" cy="58" r="2" fill="white" stroke="none"/>
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M50,15 L25,25 V50 C25,70 50,85 50,85 C50,85 75,70 75,50 V25 Z" /><circle cx="45" cy="42" r="2" fill="white" stroke="none"/><circle cx="55" cy="48" r="1.5" fill="white" stroke="none"/><circle cx="48" cy="58" r="2" fill="white" stroke="none"/></g></svg>
                 <div class="icon-label">Cancer Vigilance</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M30,55 C20,55 15,40 25,30 C25,15 45,10 50,20 C55,10 75,15 75,30 C85,40 80,55 70,55 C70,70 55,85 50,85 C45,85 30,70 30,55 Z" />
-                        <circle cx="62" cy="42" r="9" />
-                        <polyline points="62,37 62,42 66,42" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30,55 C20,55 15,40 25,30 C25,15 45,10 50,20 C55,10 75,15 75,30 C85,40 80,55 70,55 C70,70 55,85 50,85 C45,85 30,70 30,55 Z" /><circle cx="62" cy="42" r="9" /><polyline points="62,37 62,42 66,42" /></g></svg>
                 <div class="icon-label">Brain Longevity</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,30 L67,40 V60 L50,70 L33,60 V40 Z" />
-                        <circle cx="50" cy="30" r="3" fill="white" stroke="none"/>
-                        <circle cx="67" cy="40" r="3" fill="white" stroke="none"/>
-                        <line x1="67" y1="40" x2="80" y2="33" />
-                        <circle cx="80" cy="33" r="3" fill="white" stroke="none"/>
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M50,30 L67,40 V60 L50,70 L33,60 V40 Z" /><circle cx="50" cy="30" r="3" fill="white" stroke="none"/><circle cx="67" cy="40" r="3" fill="white" stroke="none"/><line x1="67" y1="40" x2="80" y2="33" /><circle cx="80" cy="33" r="3" fill="white" stroke="none"/></g></svg>
                 <div class="icon-label">Metabolic Precision</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="50" cy="50" r="38" />
-                        <circle cx="50" cy="50" r="28" stroke-dasharray="4 4" />
-                        <line x1="28" y1="65" x2="72" y2="65" />
-                        <path d="M42,65 Q50,45 58,65" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="38" /><circle cx="50" cy="50" r="28" stroke-dasharray="4 4" /><line x1="28" y1="65" x2="72" y2="65" /><path d="M42,65 Q50,45 58,65" /></g></svg>
                 <div class="icon-label">Advanced Imaging</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="50" cy="50" r="40" stroke-opacity="0.2" />
-                        <circle cx="50" cy="50" r="30" />
-                        <circle cx="50" cy="40" r="5" />
-                        <path d="M40,60 L50,50 L65,60 M50,50 V75" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="50" cy="50" r="40" stroke-opacity="0.2" /><circle cx="50" cy="50" r="30" /><circle cx="50" cy="40" r="5" /><path d="M40,60 L50,50 L65,60 M50,50 V75" /></g></svg>
                 <div class="icon-label">Physiological Reserve</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M50,20 L80,38 V65 L50,83 L20,65 V38 Z" />
-                        <path d="M50,20 V83 M20,38 L80,65 M80,38 L20,65" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M50,20 L80,38 V65 L50,83 L20,65 V38 Z" /><path d="M50,20 V83 M20,38 L80,65 M80,38 L20,65" /></g></svg>
                 <div class="icon-label">Lifestyle Architecture</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20,70 A35,35 0 0 1 80,70" />
-                        <line x1="50" y1="70" x2="68" y2="42" />
-                        <circle cx="50" cy="70" r="2" fill="white" stroke="none"/>
-                        <line x1="25" y1="70" x2="25" y2="65" />
-                        <line x1="75" y1="70" x2="75" y2="65" />
-                        <line x1="50" y1="35" x2="50" y2="40" />
-                      </g>
-                    </svg>
-                </div>
-                <div class="icon-label">Data-Guided Insight</div>
-            </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M35,85 C30,80 25,70 25,50 C25,25 45,15 50,15 C55,15 75,25 75,50 C75,70 70,80 65,85" />
-                        <path d="M40,50 Q50,40 60,50" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M35,85 C30,80 25,70 25,50 C25,25 45,15 50,15 C55,15 75,25 75,50 C75,70 70,80 65,85" /><path d="M40,50 Q50,40 60,50" /></g></svg>
                 <div class="icon-label">Psychological Resilience</div>
             </div>
-            <div class="icon-item">
-                <div class="icon-placeholder">
-                    <svg width="64" height="64" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                      <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M85,50 A35,35 0 1 1 50,15" />
-                        <polyline points="45,10 50,15 45,20" />
-                        <path d="M15,50 A35,35 0 1 0 50,85" />
-                        <polyline points="55,80 50,85 55,90" />
-                        <circle cx="43" cy="50" r="3" fill="white" stroke="none"/>
-                        <circle cx="57" cy="50" r="3" fill="white" stroke="none"/>
-                        <line x1="46" y1="50" x2="54" y2="50" />
-                      </g>
-                    </svg>
-                </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M85,50 A35,35 0 1 1 50,15" /><polyline points="45,10 50,15 45,20" /><path d="M15,50 A35,35 0 1 0 50,85" /><polyline points="55,80 50,85 55,90" /><circle cx="43" cy="50" r="3" fill="white" stroke="none"/><circle cx="57" cy="50" r="3" fill="white" stroke="none"/><line x1="46" y1="50" x2="54" y2="50" /></g></svg>
+                <div class="icon-label">Data-Guided Insight</div>
+            </div>
+            <div class="icon-item" style="display: flex; flex-direction: column; align-items: center;">
+                <svg width="100" height="100" viewBox="0 0 100 100"><g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20,70 A35,35 0 0 1 80,70" /><line x1="50" y1="70" x2="68" y2="42" /><circle cx="50" cy="70" r="2" fill="white" stroke="none"/><line x1="25" y1="70" x2="25" y2="65" /><line x1="75" y1="70" x2="75" y2="65" /><line x1="50" y1="35" x2="50" y2="40" /></g></svg>
                 <div class="icon-label">Longitudinal Partnership</div>
             </div>
         </div>
     </section>
     <section class="page-three">
         <div class="page-three-content">
-            <h1 class="page-three-title">Cutting-edge<br>preventive health</h1>
+            <h1 class="page-three-title">Precision Preventive Medicine</h1>
             <div class="page-three-body">
-                <p>For over twenty years, Preventicum has combined exceptional service with cutting-edge medical technology and clinical expertise to develop world class health assessments for our discerning clients.</p>
-                <p>Our expert team focuses on early detection and prevention of many health concerns including cancers, heart disease and stroke.</p>
-                <p>Your assessment will take place on one day, under one roof at our luxury London clinic with results available before you leave, giving you reassurance and clarity.</p>
-                <p>Experience the pinnacle of preventive health with our Optimal and Ultimate Assessments, setting new standards with our pioneering approach and offering the ultimate peace of mind.</p>
+                <p>Family Medicine Consultants. Longevity specialists.</p>
+                <p>As one of the UK’s most established providers of longevity-focused primary care, we have brought together clinical depth, advanced diagnostics and disciplined interpretation to create our Signature Health Assessment.</p>
+                <p>This is not a one-day medical.</p>
+                <p>Health does not reveal itself in haste.<br>
+                Risk cannot be understood without context.<br>
+                Investigation should follow consultation — not replace it.</p>
+                <p>At our Centre of Clinical Excellence in Antrobus, your assessment is structured, unhurried and GP-led. Time is given to history. Physiology is measured properly. Imaging is used with purpose. Results are interpreted in depth.</p>
+                <p>The outcome is clarity — not simply data.</p>
+                <p>Designed to protect healthspan over decades, not days.</p>
             </div>
             <div class="page-three-profile">
-                <img src="profile.jpg" alt="Medical Director" class="profile-img" />
+                <img src="drcooganwilmslow.jpg" alt="Dr Coogan" class="profile-img" />
                 <div class="profile-details">
-                    <div class="profile-name">DR YING-YOUNG HUI</div>
-                    <div class="profile-qualifications">MBBS BSC MRCGP DOCCMED</div>
-                    <div class="profile-title">MEDICAL DIRECTOR</div>
+                    <div class="profile-name">Dr Stephen Coogan MBChB MRCGP</div>
+                    <div class="profile-title">Founder &amp; Chief Executive Officer</div>
+                    <div class="profile-title">myGP Clinic</div>
                 </div>
             </div>
             <div class="page-three-divider"></div>
