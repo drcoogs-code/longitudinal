@@ -484,6 +484,37 @@
             line-height: 1.3;
             color: rgba(255,255,255,0.92);
         }
+        .page-six:not(.page-seven) .optima-item.filled {
+            min-height: 96px;
+        }
+        .page-six:not(.page-seven) .optima-item-desc {
+            display: none;
+        }
+        .optima-icon-placeholder {
+            margin-top: 8px;
+            height: 34px;
+            border: 1px dashed rgba(255,255,255,0.45);
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 2px;
+            box-sizing: border-box;
+        }
+        .optima-icon-placeholder svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: rgba(255,255,255,0.9);
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .optima-icon-placeholder.illustration {
+            height: 54px;
+        }
         .optima-icon {
             width: 58px;
             height: 58px;
@@ -542,6 +573,98 @@
         }
         .page-seven .optima-flow-arrow {
             color: rgba(38,43,36,0.75);
+        }
+        .page-eight {
+            background: var(--white);
+            color: var(--dark-green);
+            padding: 40px 36px 46px 36px;
+        }
+        .expect-wrap {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .expect-kicker {
+            font-family: var(--font-body);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--muted-green);
+            margin-bottom: 8px;
+        }
+        .expect-title {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            margin: 0 0 8px 0;
+            color: var(--dark-green);
+        }
+        .expect-subtitle {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 14px 0;
+            color: var(--dark-green);
+        }
+        .expect-intro {
+            border-left: 3px solid var(--taupe);
+            padding-left: 12px;
+            margin: 0 0 16px 0;
+        }
+        .expect-intro p {
+            margin: 0 0 8px 0;
+            font-size: 0.98rem;
+            line-height: 1.42;
+            color: var(--dark-green);
+        }
+        .expect-stage-list {
+            display: grid;
+            gap: 10px;
+        }
+        .expect-stage {
+            border: 1px solid rgba(38,43,36,0.22);
+            border-radius: 10px;
+            padding: 10px 12px;
+            background: #fafaf8;
+        }
+        .expect-stage-head {
+            font-family: var(--font-title);
+            color: var(--dark-green);
+            font-size: 1.08rem;
+            margin-bottom: 5px;
+        }
+        .expect-stage p {
+            margin: 0 0 6px 0;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            color: var(--dark-green);
+        }
+        .expect-stage ul {
+            margin: 0;
+            padding-left: 18px;
+        }
+        .expect-stage li {
+            margin: 0 0 4px 0;
+            font-size: 0.9rem;
+            line-height: 1.35;
+            color: var(--dark-green);
+        }
+        .expect-highlight {
+            margin-top: 12px;
+            border: 1px solid rgba(109,137,123,0.5);
+            border-radius: 10px;
+            padding: 10px 12px;
+            background: rgba(226,210,190,0.22);
+        }
+        .expect-highlight-title {
+            font-family: var(--font-title);
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            color: var(--dark-green);
+        }
+        .expect-highlight p {
+            margin: 0;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            color: var(--dark-green);
         }
         @media print {
             body, .cover, .reverse-cover, .page-three {
@@ -619,6 +742,11 @@
                 font-size: 0.43rem;
                 line-height: 1.2;
             }
+            .optima-icon-placeholder {
+                margin-top: 1mm;
+                height: 5mm;
+                border-radius: 1mm;
+            }
             .optima-icon {
                 width: 12mm;
                 height: 12mm;
@@ -627,6 +755,31 @@
             .optima-icon svg {
                 width: 10mm;
                 height: 10mm;
+            }
+            .page-eight {
+                width: 210mm;
+                min-height: 297mm;
+                padding: 10mm;
+            }
+            .expect-title {
+                font-size: 1.3rem;
+            }
+            .expect-subtitle {
+                font-size: 0.85rem;
+            }
+            .expect-intro p,
+            .expect-stage p,
+            .expect-stage li,
+            .expect-highlight p {
+                font-size: 0.63rem;
+                line-height: 1.3;
+            }
+            .expect-stage-head,
+            .expect-highlight-title {
+                font-size: 0.75rem;
+            }
+            .expect-stage {
+                padding: 2mm;
             }
             .page-four-content {
                 max-width: 180mm;
@@ -832,10 +985,11 @@
         <div class="page-number" style="position: absolute; bottom: 16mm; right: 24mm; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">4</div>
     </section>
     <section class="page-five" style="position: relative; min-height: 100vh; width: 100vw; margin: 0; padding: 64px 24px; box-sizing: border-box; background: var(--white);">
-        <div style="font-family: var(--font-title); font-size: 2rem; color: #262b24; text-align: center; margin-bottom: 32px;">Page Five Title</div>
+        <div style="font-family: var(--font-title); font-size: 2rem; color: #262b24; text-align: center; margin-bottom: 32px;">myGP Healthspan Philosophy</div>
         <div style="font-family: var(--font-body); font-size: 1.1rem; color: #262b24; text-align: left; max-width: 800px; margin: 0 auto;">
-            <!-- Add your page five content here -->
-            This is a placeholder for page five. Please specify the content you want to include.
+            This page introduces our Healthspan Philosophy: not simply living longer, but avoiding longer years in poorer health.
+            <br><br>
+            It frames how we focus on extending years of strength, clarity and independence, using a proactive, prevention-first model rooted in Medicine 3.0.
         </div>
         <div class="page-number" style="position: absolute; bottom: 48px; right: 48px; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">5</div>
     </section>
@@ -857,19 +1011,19 @@
                 <div class="optima-group-grid">
                     <div class="optima-item filled">
                         <div class="optima-item-title">Pre-Assessment &amp; Risk Profiling</div>
-                        <div class="optima-item-desc">Comprehensive evidence-based questionnaires completed in advance, covering sleep, stress, mood, physical activity, nutrition and cardiovascular risk. Establishes behavioural, metabolic and hereditary risk before you step into the room.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Consultant-Led Longevity Consultation</div>
-                        <div class="optima-item-desc">A dedicated one-to-one consultation with a Family Medicine Consultant specialising in preventive and longevity medicine. Detailed medical history, family risk mapping, medication review and healthspan strategy discussion — depth before diagnostics.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Full Systems Clinical Examination</div>
-                        <div class="optima-item-desc">A structured, consultant-standard examination across cardiovascular, respiratory, abdominal, neurological and musculoskeletal systems. Clinical findings guide investigation — not the other way round.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Personalised Investigation Strategy</div>
-                        <div class="optima-item-desc">Risk-stratified discussion of appropriate imaging, physiological testing and laboratory analysis. Every investigation is purposeful, clinically indicated and aligned to long-term health optimisation.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                 </div>
             </div>
@@ -879,19 +1033,19 @@
                 <div class="optima-group-grid">
                     <div class="optima-item filled">
                         <div class="optima-item-title">Baseline Physiological Function Assessment</div>
-                        <div class="optima-item-desc">A structured measurement of core physiological markers including blood pressure, anthropometrics, body composition, resting ECG, lung function and comprehensive laboratory analysis. Establishes objective metabolic and cardiovascular baseline data.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Targeted Ultrasound Imaging</div>
-                        <div class="optima-item-desc">Detailed ultrasound examination of key organs and vascular structures including thyroid, carotids, abdominal organs and aorta. Radiation-free imaging to detect structural and early vascular change.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Advanced Whole-Body MRI</div>
-                        <div class="optima-item-desc">Comprehensive MRI assessment of brain, thorax, abdomen and pelvis using wide-bore technology for comfort. High-resolution, radiation-free imaging for early detection of structural disease.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Advanced Cardiac Functional Assessment</div>
-                        <div class="optima-item-desc">Specialist cardiology testing including echocardiography and exercise treadmill testing (ETT). Assesses cardiac structure, valve function, exercise tolerance and inducible ischaemia.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                 </div>
             </div>
@@ -901,19 +1055,19 @@
                 <div class="optima-group-grid">
                     <div class="optima-item filled">
                         <div class="optima-item-title">Consultant Integration &amp; Clinical Interpretation</div>
-                        <div class="optima-item-desc">Your Longevity Consultant reviews and synthesises all findings — consultation data, examination findings, physiological metrics, imaging and specialist reports. Patterns are identified, risk is stratified, and incidental findings are interpreted in proper clinical context.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Results Consultation</div>
-                        <div class="optima-item-desc">A dedicated follow-up appointment with your Longevity Consultant to discuss findings in detail. Clear explanation. Clear priorities. Clear next steps. No raw data without interpretation.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Personalised Healthspan Strategy</div>
-                        <div class="optima-item-desc">A structured, individualised plan addressing cardiovascular, metabolic, cancer and cognitive risk — aligned to your physiology, lifestyle and family history. Interventions may include medical optimisation, lifestyle modification, further specialist referral or targeted monitoring.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                     <div class="optima-item filled">
                         <div class="optima-item-title">Six-Month Longitudinal Review</div>
-                        <div class="optima-item-desc">A scheduled review with your Longevity Consultant to assess progress, adherence and biomarker response. Ensures accountability, course correction and sustained health improvement — not a one-off report.</div>
+                        <div class="optima-icon-placeholder"></div>
                     </div>
                 </div>
             </div>
@@ -994,6 +1148,88 @@
             </div>
         </div>
         <div class="page-number" style="position: absolute; bottom: 28px; right: 38px; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.78; z-index: 2;">7</div>
+    </section>
+    <section class="page-eight" style="position: relative;">
+        <div class="expect-wrap">
+            <div class="expect-kicker">What to Expect</div>
+            <h2 class="expect-title">myGP Clinic Signature Health Assessment</h2>
+            <div class="expect-subtitle">Why this is not completed in a single day</div>
+
+            <div class="expect-intro">
+                <p>Health strategy cannot be rushed.</p>
+                <p>Rapid diagnostics may provide reassurance. Serious preventive medicine requires integration, reflection and clinical judgement.</p>
+                <p>Your assessment is intentionally structured in stages to ensure depth, accuracy and a personalised health plan built for long-term healthspan — not same-day conclusions.</p>
+            </div>
+
+            <div class="expect-stage-list">
+                <div class="expect-stage">
+                    <div class="expect-stage-head">Stage One — Pre-Assessment (Before You Attend)</div>
+                    <p>Validated questionnaires covering sleep, stress, nutrition, physical activity and cardiovascular risk are completed in advance.</p>
+                    <p>Your Longevity Consultant reviews these before you arrive, ensuring your consultation is focused, informed and purposeful.</p>
+                </div>
+
+                <div class="expect-stage">
+                    <div class="expect-stage-head">Stage Two — Consultant-Led Clinical Foundation</div>
+                    <p>On your first day:</p>
+                    <ul>
+                        <li>In-depth longevity consultation</li>
+                        <li>Full systems clinical examination</li>
+                        <li>Personalised investigation strategy agreed</li>
+                    </ul>
+                    <p>Every investigation is clinically indicated. Nothing is automatic.</p>
+                </div>
+
+                <div class="expect-stage">
+                    <div class="expect-stage-head">Stage Three — Physiological &amp; Imaging Assessment</div>
+                    <p>On the same day, you will undergo:</p>
+                    <ul>
+                        <li>Baseline physiological measurements and laboratory testing</li>
+                        <li>Targeted ultrasound imaging</li>
+                        <li>Advanced whole-body MRI</li>
+                    </ul>
+                    <p>Where clinically indicated, advanced cardiac assessment (echocardiography and exercise treadmill testing) is performed at our specialist cardiology partner, Venturi Cardiology — often on the same day.</p>
+                </div>
+
+                <div class="expect-stage">
+                    <div class="expect-stage-head">Stage Four — Consultant Integration &amp; Strategy Consultation</div>
+                    <p>Following analysis of all findings, you will attend a dedicated two-hour consultation with your Longevity Consultant.</p>
+                    <p>During this session:</p>
+                    <ul>
+                        <li>Results are interpreted in clinical context</li>
+                        <li>Risk is clearly stratified</li>
+                        <li>Priorities are identified</li>
+                        <li>A personalised healthspan plan is agreed</li>
+                    </ul>
+                    <p>This is not a data review. It is a strategic medical consultation.</p>
+                </div>
+
+                <div class="expect-stage">
+                    <div class="expect-stage-head">Stage Five — Six-Month Longitudinal Review</div>
+                    <p>Your programme includes a scheduled six-month follow-up to:</p>
+                    <ul>
+                        <li>Review progress</li>
+                        <li>Assess biomarker response</li>
+                        <li>Optimise interventions</li>
+                        <li>Refine your long-term strategy</li>
+                    </ul>
+                    <p>Preventive medicine only delivers value when it is reviewed.</p>
+                </div>
+            </div>
+
+            <div class="expect-highlight">
+                <div class="expect-highlight-title">The myGP Clinic Difference</div>
+                <p>We do not compress medicine into a single day. We lead it. We interpret it. We manage it — longitudinally.</p>
+            </div>
+        </div>
+        <div class="page-number" style="position: absolute; bottom: 48px; right: 48px; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">8</div>
+    </section>
+    <section class="page-nine" style="position: relative; min-height: 100vh; width: 100vw; margin: 0; padding: 64px 24px; box-sizing: border-box; background: var(--white);">
+        <div style="font-family: var(--font-title); font-size: 2rem; color: #262b24; text-align: center; margin-bottom: 32px;">Page Nine Title</div>
+        <div style="font-family: var(--font-body); font-size: 1.1rem; color: #262b24; text-align: left; max-width: 900px; margin: 0 auto;">
+            <!-- Add your page nine content here -->
+            This is a placeholder for page nine. Please specify the content you want to include.
+        </div>
+        <div class="page-number" style="position: absolute; bottom: 48px; right: 48px; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">9</div>
     </section>
 </body>
 </html>
