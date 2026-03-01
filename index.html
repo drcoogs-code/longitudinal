@@ -330,6 +330,118 @@
             color: #222;
             line-height: 1.18;
         }
+        .page-six {
+            min-height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 44px 56px 40px 56px;
+            box-sizing: border-box;
+            color: #fff;
+            background: linear-gradient(140deg, var(--dark-green) 0%, var(--muted-green) 52%, var(--dark-green) 100%);
+            overflow: hidden;
+            page-break-before: always;
+            page-break-after: always;
+        }
+        .page-six::after {
+            content: '';
+            position: absolute;
+            right: -120px;
+            bottom: -120px;
+            width: 55%;
+            height: 70%;
+            background: linear-gradient(150deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+            transform: skewX(-18deg);
+            pointer-events: none;
+        }
+        .optima-top {
+            display: flex;
+            justify-content: flex-end;
+            text-align: right;
+            position: relative;
+            z-index: 1;
+        }
+        .optima-top-copy {
+            max-width: 330px;
+            font-size: 1.9rem;
+            line-height: 1.2;
+            font-family: var(--font-title);
+            color: rgba(255,255,255,0.95);
+        }
+        .optima-price {
+            margin-top: 12px;
+            font-size: 3.6rem;
+            line-height: 1;
+            letter-spacing: 0.01em;
+        }
+        .optima-title-wrap {
+            margin-top: 26px;
+            position: relative;
+            z-index: 1;
+        }
+        .optima-title {
+            font-family: var(--font-title);
+            font-size: clamp(3.2rem, 6.5vw, 6rem);
+            line-height: 0.92;
+            letter-spacing: 0.01em;
+            margin: 0;
+            color: #fff;
+            font-weight: 400;
+        }
+        .optima-subtitle {
+            display: block;
+            text-align: right;
+            margin-top: 6px;
+            font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+            letter-spacing: 0.14em;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: rgba(255,255,255,0.94);
+        }
+        .optima-divider {
+            width: 78%;
+            margin: 26px auto 22px auto;
+            border-top: 1px solid rgba(255,255,255,0.45);
+            position: relative;
+            z-index: 1;
+        }
+        .optima-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 30px 16px;
+            max-width: 1120px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .optima-item {
+            text-align: center;
+            color: rgba(255,255,255,0.96);
+        }
+        .optima-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .optima-icon svg {
+            width: 48px;
+            height: 48px;
+            stroke: rgba(255,255,255,0.88);
+            fill: none;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .optima-label {
+            font-size: 1.45rem;
+            line-height: 1.32;
+            letter-spacing: 0.01em;
+            max-width: 220px;
+            margin: 0 auto;
+            font-family: var(--font-body);
+        }
         @media print {
             body, .cover, .reverse-cover, .page-three {
                 width: 210mm;
@@ -343,6 +455,42 @@
                 height: 297mm;
                 min-height: 297mm;
                 padding: 0;
+            }
+            .page-six {
+                width: 210mm;
+                height: 297mm;
+                min-height: 297mm;
+                padding: 12mm 10mm 10mm 10mm;
+            }
+            .optima-title {
+                font-size: 4.8rem;
+            }
+            .optima-subtitle {
+                font-size: 1.8rem;
+            }
+            .optima-top-copy {
+                font-size: 0.95rem;
+                max-width: 72mm;
+            }
+            .optima-price {
+                font-size: 2rem;
+            }
+            .optima-grid {
+                gap: 8px 5px;
+            }
+            .optima-label {
+                font-size: 0.7rem;
+                line-height: 1.2;
+                max-width: 38mm;
+            }
+            .optima-icon {
+                width: 12mm;
+                height: 12mm;
+                margin-bottom: 2mm;
+            }
+            .optima-icon svg {
+                width: 10mm;
+                height: 10mm;
             }
             .page-four-content {
                 max-width: 180mm;
@@ -554,6 +702,70 @@
             This is a placeholder for page five. Please specify the content you want to include.
         </div>
         <div class="page-number" style="position: absolute; bottom: 48px; right: 48px; color: #262b24; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.7;">5</div>
+    </section>
+    <section class="page-six" style="position: relative;">
+        <div class="optima-top">
+            <div class="optima-top-copy">
+                Family Medicine Consultants. Advanced Diagnostics. Lifelong Health Strategy.
+                <div class="optima-price">£6,999</div>
+            </div>
+        </div>
+        <div class="optima-title-wrap">
+            <h2 class="optima-title">myGP clinic Signature Health</h2>
+            <span class="optima-subtitle">ASSESSMENT</span>
+        </div>
+        <div class="optima-divider"></div>
+        <div class="optima-grid">
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><circle cx="14" cy="24" r="6"/><circle cx="34" cy="24" r="6"/><path d="M7 40c1-5 4-9 7-9s6 4 7 9"/><path d="M27 40c1-5 4-9 7-9s6 4 7 9"/><path d="M20 26l8 0"/></svg></div>
+                <div class="optima-label">In-depth consultations with expert doctors</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><circle cx="10" cy="21" r="5"/><circle cx="24" cy="16" r="6"/><circle cx="38" cy="21" r="5"/><path d="M3 38c1-6 4-9 7-9s6 3 7 9"/><path d="M16 38c1-8 4-12 8-12s7 4 8 12"/><path d="M31 38c1-6 4-9 7-9s6 3 7 9"/></svg></div>
+                <div class="optima-label">Dedicated clinical team</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="12"/><path d="M12 30h24"/><path d="M21 24h20"/></svg></div>
+                <div class="optima-label">Cutting-edge MRI scans</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><path d="M6 24h36"/><path d="M24 6v36"/><path d="M12 12l24 24"/><path d="M36 12L12 36"/><path d="M22 17c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7z"/></svg></div>
+                <div class="optima-label">AI and AR brain imaging</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><path d="M24 39c-8-6-12-11-12-18 0-5 4-9 9-9 3 0 5 1 7 4 2-3 4-4 7-4 5 0 9 4 9 9 0 7-4 12-12 18z"/><path d="M8 26h8l3-7 5 14 4-9h12"/></svg></div>
+                <div class="optima-label">Pioneering cardio assessment</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><path d="M10 12c8 0 14 6 14 14s-6 14-14 14"/><path d="M6 18c5 0 8 3 8 8s-3 8-8 8"/><path d="M30 7l12 0"/><path d="M36 1v12"/></svg></div>
+                <div class="optima-label">Detailed ultrasound scans</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><circle cx="22" cy="22" r="12"/><path d="M30 30l11 11"/><path d="M13 22h18"/></svg></div>
+                <div class="optima-label">Consultant-led mole check</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><rect x="18" y="6" width="12" height="22" rx="3"/><path d="M24 28v7"/><path d="M24 35c0 5-3 7-3 7h6s-3-2-3-7"/><path d="M18 14h12"/></svg></div>
+                <div class="optima-label">Extensive laboratory testing</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><path d="M7 39V11l14-4v32z"/><path d="M21 39V14l20-6v31z"/><path d="M27 18h2"/><path d="M32 18h2"/><path d="M27 23h2"/><path d="M32 23h2"/><path d="M27 28h2"/><path d="M32 28h2"/></svg></div>
+                <div class="optima-label">On one day under one roof</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><circle cx="14" cy="17" r="6"/><circle cx="34" cy="17" r="6"/><path d="M6 39c1-6 4-10 8-10s7 4 8 10"/><path d="M26 39c1-6 4-10 8-10s7 4 8 10"/><rect x="19" y="24" width="10" height="8" rx="1"/></svg></div>
+                <div class="optima-label">Same-day results</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><circle cx="18" cy="18" r="8"/><circle cx="33" cy="13" r="5"/><circle cx="33" cy="33" r="5"/><path d="M10 40c1-8 5-12 11-12s10 4 11 12"/><path d="M28 19l3-2"/><path d="M27 28l4 3"/></svg></div>
+                <div class="optima-label">Network of specialists</div>
+            </div>
+            <div class="optima-item">
+                <div class="optima-icon"><svg viewBox="0 0 48 48"><rect x="14" y="5" width="20" height="38" rx="5"/><path d="M24 10h6"/><path d="M18 20h12"/><path d="M18 26h12"/><path d="M18 32h8"/></svg></div>
+                <div class="optima-label">Luxury client suite</div>
+            </div>
+        </div>
+        <div class="page-number" style="position: absolute; bottom: 28px; right: 38px; color: #fff; font-size: 1.1rem; font-family: var(--font-title); opacity: 0.78; z-index: 2;">6</div>
     </section>
 </body>
 </html>
