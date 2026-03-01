@@ -428,6 +428,14 @@
             padding: 10px;
             background: rgba(255,255,255,0.03);
         }
+        .optima-group-title {
+            margin: 2px 2px 10px 2px;
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            letter-spacing: 0.03em;
+            color: rgba(255,255,255,0.96);
+            text-align: left;
+        }
         .optima-group-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -454,6 +462,27 @@
             border: 1px dashed rgba(255,255,255,0.55);
             border-radius: 8px;
             background: rgba(255,255,255,0.04);
+        }
+        .optima-item.filled {
+            min-height: 82px;
+            border: 1px solid rgba(255,255,255,0.45);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            text-align: left;
+            padding: 8px 9px;
+            box-sizing: border-box;
+        }
+        .optima-item-title {
+            font-size: 0.92rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+        .optima-item-desc {
+            font-size: 0.7rem;
+            line-height: 1.3;
+            color: rgba(255,255,255,0.92);
         }
         .optima-icon {
             width: 58px;
@@ -523,6 +552,10 @@
                 border-radius: 2mm;
                 padding: 2mm;
             }
+            .optima-group-title {
+                font-size: 0.95rem;
+                margin: 0 0 1.5mm 0;
+            }
             .optima-group-grid {
                 gap: 1.5mm;
             }
@@ -538,6 +571,19 @@
             .optima-item.blank {
                 min-height: 12mm;
                 border-radius: 2mm;
+            }
+            .optima-item.filled {
+                min-height: 12mm;
+                border-radius: 2mm;
+                padding: 1.2mm;
+            }
+            .optima-item-title {
+                font-size: 0.52rem;
+                margin-bottom: 0.8mm;
+            }
+            .optima-item-desc {
+                font-size: 0.43rem;
+                line-height: 1.2;
             }
             .optima-icon {
                 width: 12mm;
@@ -773,29 +819,68 @@
         <div class="optima-divider"></div>
         <div class="optima-flow">
             <div class="optima-group">
+                <div class="optima-group-title">Clinical Foundation</div>
                 <div class="optima-group-grid">
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Pre-Assessment &amp; Risk Profiling</div>
+                        <div class="optima-item-desc">Comprehensive evidence-based questionnaires completed in advance, covering sleep, stress, mood, physical activity, nutrition and cardiovascular risk. Establishes behavioural, metabolic and hereditary risk before you step into the room.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Consultant-Led Longevity Consultation</div>
+                        <div class="optima-item-desc">A dedicated one-to-one consultation with a Family Medicine Consultant specialising in preventive and longevity medicine. Detailed medical history, family risk mapping, medication review and healthspan strategy discussion — depth before diagnostics.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Full Systems Clinical Examination</div>
+                        <div class="optima-item-desc">A structured, consultant-standard examination across cardiovascular, respiratory, abdominal, neurological and musculoskeletal systems. Clinical findings guide investigation — not the other way round.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Personalised Investigation Strategy</div>
+                        <div class="optima-item-desc">Risk-stratified discussion of appropriate imaging, physiological testing and laboratory analysis. Every investigation is purposeful, clinically indicated and aligned to long-term health optimisation.</div>
+                    </div>
                 </div>
             </div>
             <div class="optima-flow-arrow"></div>
             <div class="optima-group">
+                <div class="optima-group-title">Physiological &amp; Imaging Assessment</div>
                 <div class="optima-group-grid">
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Baseline Physiological Function Assessment</div>
+                        <div class="optima-item-desc">A structured measurement of core physiological markers including blood pressure, anthropometrics, body composition, resting ECG, lung function and comprehensive laboratory analysis. Establishes objective metabolic and cardiovascular baseline data.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Targeted Ultrasound Imaging</div>
+                        <div class="optima-item-desc">Detailed ultrasound examination of key organs and vascular structures including thyroid, carotids, abdominal organs and aorta. Radiation-free imaging to detect structural and early vascular change.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Advanced Whole-Body MRI</div>
+                        <div class="optima-item-desc">Comprehensive MRI assessment of brain, thorax, abdomen and pelvis using wide-bore technology for comfort. High-resolution, radiation-free imaging for early detection of structural disease.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Advanced Cardiac Functional Assessment</div>
+                        <div class="optima-item-desc">Specialist cardiology testing including echocardiography and exercise treadmill testing (ETT). Assesses cardiac structure, valve function, exercise tolerance and inducible ischaemia.</div>
+                    </div>
                 </div>
             </div>
             <div class="optima-flow-arrow"></div>
             <div class="optima-group">
+                <div class="optima-group-title">Longevity Integration &amp; Longitudinal Strategy</div>
                 <div class="optima-group-grid">
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
-                    <div class="optima-item blank"></div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Consultant Integration &amp; Clinical Interpretation</div>
+                        <div class="optima-item-desc">Your Longevity Consultant reviews and synthesises all findings — consultation data, examination findings, physiological metrics, imaging and specialist reports. Patterns are identified, risk is stratified, and incidental findings are interpreted in proper clinical context.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Results Consultation</div>
+                        <div class="optima-item-desc">A dedicated follow-up appointment with your Longevity Consultant to discuss findings in detail. Clear explanation. Clear priorities. Clear next steps. No raw data without interpretation.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Personalised Healthspan Strategy</div>
+                        <div class="optima-item-desc">A structured, individualised plan addressing cardiovascular, metabolic, cancer and cognitive risk — aligned to your physiology, lifestyle and family history. Interventions may include medical optimisation, lifestyle modification, further specialist referral or targeted monitoring.</div>
+                    </div>
+                    <div class="optima-item filled">
+                        <div class="optima-item-title">Six-Month Longitudinal Review</div>
+                        <div class="optima-item-desc">A scheduled review with your Longevity Consultant to assess progress, adherence and biomarker response. Ensures accountability, course correction and sustained health improvement — not a one-off report.</div>
+                    </div>
                 </div>
             </div>
         </div>
